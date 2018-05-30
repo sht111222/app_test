@@ -1,0 +1,388 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1527649073721" stop="1527649183041">
+  <name>test_login</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1527649073721" status="passed" stop="1527649109896">
+      <name>Test_Login.test_login[13488834010-159357-True-\u767b\u5f55\u6210\u529f-\u6210\u529f]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649095742" status="passed" stop="1527649096895">
+          <name>点击首页我的按钮</name>
+          <title>点击首页我的按钮</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649096896" status="passed" stop="1527649098173">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649098173" status="passed" stop="1527649104870">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="e219a8df-1e08-4195-bc5d-ae1fd9ced47a-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649104870" status="passed" stop="1527649108331">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments>
+            <attachment source="b3a8401e-09ef-483d-8fa3-baf7c353991e-attachment.txt" title="获取toast:" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649108331" status="passed" stop="1527649108357">
+          <name>登陆成功页面我的订单判断</name>
+          <title>登陆成功页面我的订单判断</title>
+          <attachments>
+            <attachment source="fa79fde8-9207-462e-b901-b7cf9830b0dd-attachment.txt" title="我的订单" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649108357" status="passed" stop="1527649108394">
+          <name>个人信息页面点击设置按钮</name>
+          <title>个人信息页面点击设置按钮</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649108394" status="passed" stop="1527649109895">
+          <name>设置页面点击退出按钮</name>
+          <title>设置页面点击退出按钮</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1527649110021" status="failed" stop="1527649133234">
+      <name>Test_Login.test_login[ 13488834010-159357-True-\u767b\u5f55\u6210\u529f-\u6210\u529f]</name>
+      <failure>
+        <message>AssertionError: assert False</message>
+        <stack-trace>self = &lt;test_login.Test_Login object at 0x05C8C910&gt;, username = ' 13488834010'
+passwd = '159357', expectx = True, expect_toast = '登录成功', get_msg = '成功'
+
+    @pytest.mark.parametrize("username,passwd,expectx,expect_toast,get_msg",get_login_data())
+    def test_login(self, username,passwd,expectx,expect_toast,get_msg):
+        # 点击登陆/注册
+        self.page_obj.get_login_page().click_insert_login()
+        # 登陆操作
+        self.page_obj.get_login_page().login(username, passwd)
+    
+        if expectx:
+            try:
+                # 登陆成功toast消息
+                suc_msg = self.page_obj.get_login_page().find_toast(get_msg)
+                # 获取我的订单按钮是否存在 成功返回True 不成功返回False
+                suc_status = self.page_obj.get_login_page().get_suc_login_status()
+                # 断言成功/失败
+&gt;               assert suc_msg == expect_toast and  suc_status
+E               AssertionError: assert (False == '登录成功')
+
+Scripts\test_login.py:42: AssertionError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;test_login.Test_Login object at 0x05C8C910&gt;, username = ' 13488834010'
+passwd = '159357', expectx = True, expect_toast = '登录成功', get_msg = '成功'
+
+    @pytest.mark.parametrize("username,passwd,expectx,expect_toast,get_msg",get_login_data())
+    def test_login(self, username,passwd,expectx,expect_toast,get_msg):
+        # 点击登陆/注册
+        self.page_obj.get_login_page().click_insert_login()
+        # 登陆操作
+        self.page_obj.get_login_page().login(username, passwd)
+    
+        if expectx:
+            try:
+                # 登陆成功toast消息
+                suc_msg = self.page_obj.get_login_page().find_toast(get_msg)
+                # 获取我的订单按钮是否存在 成功返回True 不成功返回False
+                suc_status = self.page_obj.get_login_page().get_suc_login_status()
+                # 断言成功/失败
+                assert suc_msg == expect_toast and  suc_status
+                # 退出操作
+                # 点击个人中心设置
+                self.page_obj.get_setting_page().click_setting_btn()
+                # 点击退出登录按钮
+                self.page_obj.get_setting_page().click_logout_btn()
+            except:
+                # 点击登陆页面关闭按钮
+                self.page_obj.get_login_page().login_faile_x()
+&gt;               assert False
+E               assert False
+
+Scripts\test_login.py:51: AssertionError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649110034" status="passed" stop="1527649112294">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649112294" status="passed" stop="1527649117629">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="3c8f8b29-56a8-4167-8273-e54538339f37-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649117629" status="passed" stop="1527649122696">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649122696" status="passed" stop="1527649132751">
+          <name>登陆成功页面我的订单判断</name>
+          <title>登陆成功页面我的订单判断</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649132764" status="passed" stop="1527649132819">
+          <name>关闭登陆页面</name>
+          <title>关闭登陆页面</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1527649133339" status="passed" stop="1527649144982">
+      <name>Test_Login.test_login[13488834010 -159357-True-\u767b\u5f55\u6210\u529f-\u6210\u529f]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649133341" status="passed" stop="1527649134420">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649134420" status="passed" stop="1527649140366">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="b2caa0a2-37f1-4520-8e80-8a28829ddb42-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649140366" status="passed" stop="1527649143563">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments>
+            <attachment source="4fb57220-24f3-433b-9f8d-e026a5c6dd59-attachment.txt" title="获取toast:" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649143563" status="passed" stop="1527649143588">
+          <name>登陆成功页面我的订单判断</name>
+          <title>登陆成功页面我的订单判断</title>
+          <attachments>
+            <attachment source="9b79d5c0-0fe9-438c-b9d9-0ef776ce8caf-attachment.txt" title="我的订单" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649143588" status="passed" stop="1527649143637">
+          <name>个人信息页面点击设置按钮</name>
+          <title>个人信息页面点击设置按钮</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649143637" status="passed" stop="1527649144982">
+          <name>设置页面点击退出按钮</name>
+          <title>设置页面点击退出按钮</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1527649144991" status="passed" stop="1527649154837">
+      <name>Test_Login.test_login[13488834010-159357000-None-\u5bc6\u7801\u9519\u8bef!-\u9519\u8bef]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649144994" status="passed" stop="1527649147204">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649147204" status="passed" stop="1527649153352">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="db9ec80c-3135-41a3-beab-26067bffa4fd-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649153352" status="passed" stop="1527649154740">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments>
+            <attachment source="a134eac2-b3b5-4ae0-b0d4-d4e9ef40ceff-attachment.txt" title="获取toast:" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649154740" status="passed" stop="1527649154837">
+          <name>关闭登陆页面</name>
+          <title>关闭登陆页面</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1527649154952" status="passed" stop="1527649164189">
+      <name>Test_Login.test_login[134888340101-159357000-None-\u8d26\u53f7\u4e0d\u5b58\u5728!-\u4e0d\u5b58\u5728]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649154955" status="passed" stop="1527649156166">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649156166" status="passed" stop="1527649162510">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="6c96f708-5e14-42c7-b43a-7ae2194dbc06-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649162510" status="passed" stop="1527649164059">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments>
+            <attachment source="0b44a48e-64db-4c90-99a4-590c090c31d3-attachment.txt" title="获取toast:" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649164059" status="passed" stop="1527649164189">
+          <name>关闭登陆页面</name>
+          <title>关闭登陆页面</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1527649164205" status="passed" stop="1527649173237">
+      <name>Test_Login.test_login[1348883401-159357000-None-\u8d26\u53f7\u4e0d\u5b58\u5728!-\u4e0d\u5b58\u5728]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649164213" status="passed" stop="1527649165266">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649165266" status="passed" stop="1527649171820">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="9d9a6cde-28c2-4dce-b3bc-9cfe669cc20a-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649171820" status="passed" stop="1527649173095">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments>
+            <attachment source="a44babae-9c14-4605-ab72-6ceec32ac1e7-attachment.txt" title="获取toast:" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649173095" status="passed" stop="1527649173236">
+          <name>关闭登陆页面</name>
+          <title>关闭登陆页面</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1527649173355" status="passed" stop="1527649183041">
+      <name>Test_Login.test_login[18888888888-1593570-None-\u8d26\u53f7\u4e0d\u5b58\u5728!-\u4e0d\u5b58\u5728]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="792-MainThread"/>
+        <label name="host" value="LAPTOP-DG93P6AN"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1527649173357" status="passed" stop="1527649174763">
+          <name>点击个人中心页面登陆/注册</name>
+          <title>点击个人中心页面登陆/注册</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1527649174763" status="passed" stop="1527649181638">
+          <name>等页面信息操作</name>
+          <title>等页面信息操作</title>
+          <attachments>
+            <attachment source="f17f6fb4-d7b1-4096-a017-91fa84457214-attachment.txt" title="登陆用户信息" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649181638" status="passed" stop="1527649182947">
+          <name>获取toast提示消息</name>
+          <title>获取toast提示消息</title>
+          <attachments>
+            <attachment source="073ccef6-d71d-4c73-8240-976cbd7d167b-attachment.txt" title="获取toast:" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1527649182947" status="passed" stop="1527649183039">
+          <name>关闭登陆页面</name>
+          <title>关闭登陆页面</title>
+          <attachments/>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
